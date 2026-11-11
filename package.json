@@ -1,0 +1,14 @@
+{
+  "name": "inventory-mis-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "多人版库存与商品管理信息系统",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node src/start.js",
+    "dev": "node --watch src/server.js"
+  }
+}

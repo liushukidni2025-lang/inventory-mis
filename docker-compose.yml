@@ -1,0 +1,17 @@
+services:
+  inventory:
+    build: .
+    image: inventory-mis-server:latest
+    container_name: inventory-mis
+    ports:
+      - "3000:3000"
+    environment:
+      # 首次启动时若数据库中还没有用户，将使用该密码创建管理员（用户名默认 admin）
+      # 也可留空，由程序随机生成并打印在容器日志中
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      TZ: Asia/Shanghai
+      DATA_DIR: /data
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
